@@ -21,6 +21,6 @@ jobs:
         run: mvn clean install -f MyWebApp/pom.xml
       - name: Deploy to Tomcat
         run: |
-          curl -v -u ${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASSWORD }} \
+          curl -v -u ${{ secrets.tomcat_user }}:${{ secrets.tomcat_password }} \
           -T MyWebApp/target/MyWebApp.war \
-          "http://${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/MyWebApp&update=true"
+          "http://${{ secrets.tomcat_host }}/manager/text/deploy?path=/MyWebApp&update=true"
